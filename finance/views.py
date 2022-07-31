@@ -28,7 +28,7 @@ def delete_data(request,id):
          pi = Daily_Incomes.objects.get(pk=id)
          #pi = DailyIncome.object.get(pk=id)
          pi.delete()
-         messages.success(request, "Data Deleted Successfully")
+         messages.error(request, "Data Deleted Successfully")
          return HttpResponseRedirect('/')
          
 # End of the function delete data
