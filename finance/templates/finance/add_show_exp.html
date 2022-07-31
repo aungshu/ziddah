@@ -1,0 +1,58 @@
+{% extends 'finance/base.html'%}
+     {% block content%}
+     <h5 align="center">Expences</h5>
+     <div class="row">
+        <div class="col-sm-4">
+           <h5 class="text-center alert bg-light border border-dark">Add new entry</h4>
+              <form action="" method="POST">
+                 {% csrf_token %}
+                 {{form}}
+                 <br>
+              <input type="submit" class="btn btn-info" value = "Add">
+              </form>
+        </div>
+
+        <div class="col-sm-8">
+           <h5 class="text-center alert bg-light border border-dark">View Details</h4>
+              {% if de %}
+               
+                    <table align="center" class="table table-hover table-sm table-bordered table-responsive" style="width:fit-content; height:400px">
+                       <thead>
+                       <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Office</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Mode</th>
+                          <th scope="col">Amount (BDT)</th>
+                          <th scope="col">Action</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                          {% for i in de %}
+                       <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{i.Office_ID}}</td>
+                          <td>{{i.Expence_Date}}</td>
+                          <td>{{i.Expence_ID}}</td>
+                          <td align="center">{{i.Expend_Amount}}</td>
+                          <td>
+                             <a href="{% url 'updateexp' i.id%}" class="btn btn-sm btn-dark">Edit</a>
+                             
+                             <form action="{% url 'deleteexp' i.id%}" method="post" class="d-inline">{%csrf_token%}
+                                <input type="submit" value ="Delete" class="btn btn-sm btn-warning">
+                             </form>
+                          </td>
+                       </tr>
+                          {% endfor %}
+                       </tbody>
+                    </table>
+
+
+
+              {% else %}
+                <h4 align="center"> No Data found</h4>
+              {% endif %}
+        </div>
+       </div>
+
+     {% endblock content%}

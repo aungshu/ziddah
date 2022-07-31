@@ -1,0 +1,15 @@
+{% extends 'finance/base.html'%}
+     {% block content%}
+       
+
+        <div class="col-sm-8 offset-2">
+            <h5 class="text-center alert bg-warning border border-dark">Update/Edit Expenditure info</h5>
+            <form action="" method = "POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-sm btn-warning" value="Edit/Update">
+                <a href="{% url 'dexp'%}" class="btn btn-sm btn-dark"> Back to Daily Expences</a>
+            </form>
+        </div>
+
+     {% endblock content%}

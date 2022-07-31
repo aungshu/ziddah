@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziddah-Financials</title>
+    <link rel="stylesheet" href="{% static 'finance/css/bootstrap.css' %}">
+    <!--CSS for Alertify Starts here -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!--CSS for Alertyfy Ends here-->
+</head>
+<body>
+    <!--navbar codes start here-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Ziddah</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'add_show' %}">Daily Sales <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'dexp' %}">Daily Expences</a>
+            </li>
+            
+            
+          </ul>
+        </div>
+        </nav>
+    <!--navbar codes ends here-->
+    <div class="container mt-3">
+
+        <h4 class="text-center font-weight-light">Ziddah Financials</h4>
+       
+        {% block content%} 
+        
+        {% endblock content%}
+    </div>
+   
+    <script src="{% static 'finance/js/bootstrap.js'%}"></script>
+    <script src="{% static 'finance/js/jquery.js'%}"></script>
+    <script src="{% static 'finance/js/popper.js'%}"></script>
+    <!--JScript code for Alertyfy-->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!--Notifier starts here-->
+    <script>
+     {% for flashmsg in messages %}
+      
+       alertify.set('notifier','position', 'top-right');
+       alertify.success('{{flashmsg}}');
+      {% endfor %}
+
+      
+
+    </script>
+    <!--Notifier Ends here-->
+    <!--JScript code Alertyfy ends-->
+</body>
+</html>
