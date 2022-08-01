@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath FromThePath FromThePath.wsgi
+web: gunicorn ziddah.wsgi --log-file -
