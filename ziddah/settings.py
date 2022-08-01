@@ -25,7 +25,7 @@ SECRET_KEY = '_v7+xzzk0ddyg-c05w#qir*_f$o(j)&$9jc%gptjohq0daz85$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','ziddah.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','ziddah.herokuapp.com']
 
 
 # Application definition
