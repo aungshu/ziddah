@@ -76,6 +76,18 @@ class Incomes(models.Model):
         return self.Income_Name
 #End of Model Receivables
 
+#Start Model Rceivers
+class Receivers(models.Model):
+    Receiver_Name = models.CharField(max_length=100)
+    Office_ID = models.ForeignKey(Offices, null=True, on_delete=models.SET_NULL)
+    Designation = models.CharField(max_length=90)
+    Active_Status_ID = models.ForeignKey(Active_Statuses, null=True, on_delete=models.SET_NULL)
+    Remarks = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.Receiver_Name
+#End of Model Receivers
+
 #Start Model Expences
 class Expences(models.Model):
     Expence_Name = models.CharField(max_length=100)
@@ -111,13 +123,15 @@ class Daily_Expences(models.Model):
     Expence_Date = models.DateField()
     Office_ID = models.ForeignKey(Offices, null=True, on_delete=models.SET_NULL)
     Expence_ID = models.ForeignKey(Expences, null=True, on_delete=models.SET_NULL)
+    Receiver_ID = models.ForeignKey(Receivers, null=True, on_delete=models.SET_NULL)
     Expend_Amount = models.IntegerField()
     Transaction_Made_BY = models.CharField(max_length=100, null=True)
     Updated_User_ID = models.IntegerField(null=True)
     Update_Date = models.DateField(null=True)
-    Remarks = models.CharField(max_length=100,)
+    Remarks = models.CharField(max_length=100, null=True)
 
     #def __str__(self):
      #   return self.Expend_Amount
 
 #End of Model Daily Expences
+

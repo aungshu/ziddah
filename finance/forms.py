@@ -41,12 +41,13 @@ class DailyIncome(forms.ModelForm):
 class DailyExpences(forms.ModelForm):
     class Meta:
         model = Daily_Expences
-        fields = ['Expence_Date','Office_ID','Expence_ID','Expend_Amount','Transaction_Made_BY',
+        fields = ['Expence_Date','Office_ID','Expence_ID','Receiver_ID','Expend_Amount','Transaction_Made_BY',
                   'Updated_User_ID','Update_Date','Remarks']
         labels = {
             'Expence_Date':'Date of Expences',
             'Office_ID':'Office',
             'Expence_ID':'Expence Type',
+            'Receiver_ID':'Paid to',
             'Expend_Amount':'Amount',
             'Remarks':'Remarks',
         }
@@ -54,9 +55,9 @@ class DailyExpences(forms.ModelForm):
               'Expence_Date': DateInput(attrs={'class': 'form-control','value':datetime.date.today()}),
               'Office_ID': forms.Select(attrs={'class': 'form-control'}),
               'Expence_ID': forms.Select(attrs={'class': 'form-control'}),
-              
+              'Receiver_ID': forms.Select(attrs={'class':'form-control'}),
               'Expend_Amount': forms.TextInput(attrs={'class': 'form-control'}),
-              'Remarks': forms.TextInput(attrs={'class': 'form-control'}),
+              #'Remarks': forms.TextInput(attrs={'class': 'form-control'}),
               'Transaction_Made_BY':forms.HiddenInput(attrs={'class':'form-control','value':'Kazi Deen Mohammad'}),
               'Updated_User_ID':forms.HiddenInput(attrs={'class':'form-control', 'value':'1'}),
               'Update_Date':forms.HiddenInput(attrs={'class':'form-control','value':datetime.date.today()}),

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Offices,Active_Statuses,Income_Types,Expenditure_Types,Districts, Incomes, Expences, Daily_Incomes, Daily_Expences
+from .models import Offices,Active_Statuses,Income_Types,Expenditure_Types,Districts, Incomes, Expences, Daily_Incomes, Daily_Expences, Receivers
 
 # Register your models here.
 admin.site.register(Offices)
@@ -11,3 +11,4 @@ admin.site.register(Incomes)
 admin.site.register(Expences)
 admin.site.register(Daily_Incomes)
 admin.site.register(Daily_Expences)
+admin.site.register(Receivers)
