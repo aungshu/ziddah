@@ -23,6 +23,7 @@
                           <th scope="col">Office</th>
                           <th scope="col">Date</th>
                           <th scope="col">Mode</th>
+                          <th scope="col">Paid to</th>
                           <th scope="col">Amount (BDT)</th>
                           <th scope="col">Action</th>
                        </tr>
@@ -34,6 +35,7 @@
                           <td>{{i.Office_ID}}</td>
                           <td>{{i.Expence_Date}}</td>
                           <td>{{i.Expence_ID}}</td>
+                          <td>{{i.Receiver_ID}}</td>
                           <td align="center">{{i.Expend_Amount}}</td>
                           <td>
                              <a href="{% url 'updateexp' i.id%}" class="btn btn-sm btn-dark">Edit</a>
